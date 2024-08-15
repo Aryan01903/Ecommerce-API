@@ -3,6 +3,8 @@ const express=require("express")
 const mongoose=require("mongoose")
 const server_config=require("./configs/server.configs")
 const db_configs= require("./configs/db.configs")
+const user_model= require("./models/user.model")
+const bcrypt=require("bcryptjs")
 const app= express()
 
 /**
@@ -18,11 +20,35 @@ db.on("error",()=>{
 })
 db.once("open",()=>{
     console.log("connected with MongoDB")
+    init()
 })
 
+async function init(){
+    try{
+        const user=user_model.findOne({userID : "admin"})
 
-/** Middleware */
-app.use(express.json())
+        if (user){
+            console.log("Admin is already Present")
+            return
+    }}
+    catch(err){
+        console.log("Error while reading data", err)
+    }
+
+    try{
+        user=await user_model.create({
+            name : "Aryan Kumar Shrivstav",
+            userID : "admin",
+            email : "aryanakki@gmail.com",
+            usertype : "ADMIN",
+            password : bcrypt.hashSync("welcome",8)
+        })
+        console.log("Admin Created ",user)
+    }catch(err){
+        console.log("Error while Creating admin", err)
+    }
+    
+}
 
 
 app.listen(server_config.PORT,()=>{
