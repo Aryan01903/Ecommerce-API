@@ -30,7 +30,7 @@ const userSchema=new mongoose.Schema({
         lowercase : true,
         minLength : 10
     },
-    usertype : {
+    userType : {
         type : String,
         default : "CUSTOMER",
         enum : ["CUSTOMER","ADMIN"]
