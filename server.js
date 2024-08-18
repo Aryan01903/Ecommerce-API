@@ -39,9 +39,9 @@ async function init(){
         user=await user_model.create({
             name : "Aryan Kumar Shrivstav",
             userID : "admin",
-            email : "aryanakki@gmail.com",
+            email : "aryanshrivastav2003@gmail.com",
             usertype : "ADMIN",
-            password : bcrypt.hashSync("welcome",8)
+            password : bcrypt.hashSync("welcome1",8)
         })
         console.log("Admin Created ",user)
     }catch(err){
