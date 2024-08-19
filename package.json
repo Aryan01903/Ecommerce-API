@@ -1,17 +1,22 @@
 {
-  "name": "ecomm-api",
+  "name": "ecommproject",
   "version": "1.0.0",
-  "description": "ecommerce API ",
+  "description": "This is the eCom project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "Aryan Kumar Shrivastav",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
     "express": "^4.19.2",
+    "json": "^11.0.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.5.3"
+    "mongoose": "^8.2.0",
+    "token": "^0.1.0",
+    "web": "^0.0.2"
   }
 }
